@@ -10,6 +10,9 @@ public class Variavel{
  		
 		int idade = 21; // variavel do tipo inteiro
 		boolean casado = true; // variavel do tipo verdadeiro ou falso
+                
+                Integer ii;
+                
 		
 		
 		System.out.println(nome);
