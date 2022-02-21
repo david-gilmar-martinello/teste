@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "martinello-salgado",
+  "private_key_id": "d7236cbc906333bdeae53f0e6d1e5ca3cc4816ec",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCD6h1F6u/NFyvx\nIOv/sEFNKzQQl89Kjru3kd5GHIoivbGHL0yveyGtNQydbawawTiGP6iHjBkqqXTD\nCtHtE6eCXHsEuIWiEdz2t3UOrM2w+UVzVSWlDE23gdmlJOyX274L/D+fcZIAYzIh\nE2qNH+BFBBYIzK1ULI1PUsD+8KqFqj7ar040ZQ64YBzux1k+aQDnv1N2q9tGq6tt\n63av6sCM1mn1Pgx+Mzem+rpc7UoQIPGXHx34nBt/tvsx88mVIFQs49DtyVcLvPLp\nRZR7FClQr2aGP5G91IWeTyqBUOaa+dJ9+j8peMdoI+uk3u8vclTlv3UnShnlgUke\nkcidP0DNAgMBAAECggEABHSUT4e7WLR3JfpELksgMYCLjiHqfOysN2uEU97j5X99\nrwCweN7SSNzZU7ngDblH9PTSdt2K/g9iI7JKW9UFm9gOyZ6H2Oz8hxK0L+4zNk59\nA4O1NUlgmJmYpcTE/u4LkbEP3w1BbqTrDQXwW9rfQsV8DwkGs6ibjznOze2H/OKy\nOdqyLeCkpXMhh+hnB19Sq5QteXZetpXsOXrS/BI4WrauA6XoS8YTKLkngZI+/T6R\nwhWoQHb4/Zfn0dxxKJmYawK3YzDXH6eO6dbvF09wSiL/b9fHzNH2pxLke3z76ezP\nRZBqcl+PpuTX7D3bv+KPaFtD9+dHn/Sx1gdlgL/1MQKBgQC4zK/2scalc7gqgEm+\nBB2n3XyB7Khk4zuwZX3Wuq1XhDWhmL0XxZTa7zuNa3I9BKJuyx47kJfNSQncS7q2\nkztrTHBrfiaQQrWCWiS5oPQIfosvlOtgw8M3cYfKuCGV0oBm3p4euQzSoZkuIV6b\nb/AJrg8u0AipKdDUP2h43dHmiQKBgQC2vTjgNGZCKpoSHcWbt2QmkYkwEezGIw9u\nd4IZhbnOAdu9ZOXQCbT69KkAVSUrwIssu4hVhpTR/l1jKYDV0lS+tWl2N3Wilg/9\nfsfsztiG4HMGNoXKUoMreXO/90bcyu9dWpT4KHvp2fjr/ykgBcptk448JM1DQQBW\n8wbmmfW3JQKBgDc9SCQPw/dU/eoGawSXql2xQTR9D2EI46C41cLIDmSoqndhdrSS\nZQqElGKTiZRfvEYuBR18/UNp376wDGHi5NIQCVK4ZMKeji8mzu+GAyw+11AjzbAh\nFEuQbizUmYV1ZNhbFxzL599WWrmFVAhWj4P1OaiemtgmHbw0MABhHgsxAoGABb2+\nKrUavVtvScBrs++4EsohwEPf5320f2j7ymd8Je/DAplH6xhS+ktzf9Is/8nl1Xry\n1pUK2eoe7v2f0ZfxF6jFbnRhmsESMYmpKFR7Uwl8M6bE301mV5hSPaa8MDWj/Y/Z\n/E3xTrCNdISouxvTd0vafSM+260QIKsz/Uy6/o0CgYEAg9EoYoN1d7DHqeQZ2OZc\nLapBABHRGmVEy7x17OK2mUSFlzUjjiCBQd7ZEIH3SV9CVEKWLuX9DBrUtdLJnTKs\nZC95Gh9Boh7kqj9qVUIhb7LEMShU0PG3llhgmNZQXJy5lYeGAc82n31w+ZC76SEP\nIz3evYIOsTVzn5Uu3M9e0PQ=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-bup3y@martinello-salgado.iam.gserviceaccount.com",
+  "client_id": "101995486239612338622",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-bup3y%40martinello-salgado.iam.gserviceaccount.com"
+}
