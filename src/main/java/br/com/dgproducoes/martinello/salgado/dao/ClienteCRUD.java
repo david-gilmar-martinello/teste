@@ -33,7 +33,8 @@ public class ClienteCRUD {
         boolean key = false;
 
         // Create a Map to store the data we want to set
-        Map<String, Object> docCliente = new HashMap<>();
+        Map<String, Object> docCliente;
+        docCliente = new HashMap<>();
         docCliente.put("nome", cliente.getNome());
         docCliente.put("email", cliente.getEmail());
         docCliente.put("dataNascimento", cliente.getDataNascimento());
