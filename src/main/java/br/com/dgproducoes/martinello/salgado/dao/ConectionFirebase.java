@@ -19,8 +19,7 @@ import java.io.IOException;
  */
 public class ConectionFirebase {
 
-
-    public Firestore conctarBanco() {
+    public static Firestore conctarBanco() {
         try {
 
             FileInputStream serviceAccount
@@ -29,15 +28,15 @@ public class ConectionFirebase {
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))
                     .build();
-            FirebaseApp.initializeApp(options);
-            System.out.println("Conexão Realizada com sucesso");
+            if (FirebaseApp.getApps().isEmpty()) { //<------- Here
+                FirebaseApp.initializeApp(options);
+            }
 
-        } catch (FileNotFoundException  ex) {
+        } catch (FileNotFoundException ex) {
             ex.printStackTrace();
         } catch (IOException ex) {
             ex.printStackTrace();
         }
         return FirestoreClient.getFirestore();
     }
-
 }

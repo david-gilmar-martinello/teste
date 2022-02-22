@@ -20,14 +20,18 @@ public class Cliente extends RecursiveTreeObject<Cliente> implements Serializabl
     StringProperty nome;
     StringProperty email;
     StringProperty dataNascimento;
+    StringProperty cpf;
+    StringProperty situacao;
 
     public Cliente() {
     }
 
-    public Cliente(String nome, String email, String dataNascimento) {
+    public Cliente(String nome, String email, String dataNascimento, String cpf, String situacao) {
         this.nome = new SimpleStringProperty(nome);
         this.email = new SimpleStringProperty(email);
         this.dataNascimento = new SimpleStringProperty(dataNascimento);
+        this.cpf = new SimpleStringProperty(cpf);
+        this.situacao = new SimpleStringProperty(situacao);
     }
 
     public String getNome() {
@@ -52,6 +56,22 @@ public class Cliente extends RecursiveTreeObject<Cliente> implements Serializabl
 
     public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = new SimpleStringProperty(dataNascimento);
+    }
+
+    public String getCpf() {
+        return cpf.get();
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = new SimpleStringProperty(cpf);
+    }
+
+    public String getSituacao() {
+        return situacao.get();
+    }
+
+    public void setSituacao(String situacao) {
+        this.situacao = new SimpleStringProperty(situacao);
     }
 
 }

@@ -4,9 +4,18 @@
  */
 package br.com.dgproducoes.martinello.salgado.views;
 
+import br.com.dgproducoes.martinello.salgado.dao.ConectionFirebase;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JDesktopPane;
 import javax.swing.Timer;
 
@@ -16,11 +25,14 @@ import javax.swing.Timer;
  */
 public class TelaPrincipal extends javax.swing.JFrame {
 
+    private ConectionFirebase conectionFirebase = new ConectionFirebase();
+
     /**
      * Creates new form TelaPrincipal
      */
     public TelaPrincipal() {
         initComponents();
+        conectionFirebase.conctarBanco();
     }
 
     /**
@@ -32,7 +44,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jdpTelaPrincipal = new javax.swing.JDesktopPane();
+        ImageIcon icon = new ImageIcon(getClass().getResource("/imagem/caverinha.jpg"));
+        Image image = icon.getImage();
+        jdpTelaPrincipal = new javax.swing.JDesktopPane(){
+            public void paintComponent(Graphics g){
+                g.drawImage(image,0,0,getWidth(),getHeight(),this);
+            }
+
+        };
         jPanel1 = new javax.swing.JPanel();
         jlPainelHora = new javax.swing.JLabel();
         jlPainelInformativo = new javax.swing.JLabel();
@@ -44,6 +63,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jmiBaixaSalgado = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("SSM - Sistema de Salgado Martinello");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -86,7 +106,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jdpTelaPrincipalLayout.setVerticalGroup(
             jdpTelaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdpTelaPrincipalLayout.createSequentialGroup()
-                .addGap(0, 595, Short.MAX_VALUE)
+                .addGap(0, 598, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -105,9 +125,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jmContaReceber.setText("Contas Receber");
 
         jmiConsultaPagamento.setText("Consulta Pagamentos");
+        jmiConsultaPagamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiConsultaPagamentoActionPerformed(evt);
+            }
+        });
         jmContaReceber.add(jmiConsultaPagamento);
 
         jmiBaixaSalgado.setText("Baixa Salgado");
+        jmiBaixaSalgado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiBaixaSalgadoActionPerformed(evt);
+            }
+        });
         jmContaReceber.add(jmiBaixaSalgado);
 
         jmbMeuPrincipal.add(jmContaReceber);
@@ -140,10 +170,26 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void jmiAddFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAddFuncionarioActionPerformed
-       TelaCadastroCliente cadastroCliente = new TelaCadastroCliente();
+        TelaCadastroCliente cadastroCliente = new TelaCadastroCliente();
         jdpTelaPrincipal.add(cadastroCliente);
         cadastroCliente.show();
     }//GEN-LAST:event_jmiAddFuncionarioActionPerformed
+
+    private void jmiConsultaPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiConsultaPagamentoActionPerformed
+        TelaConsultaPagamentos telaConsultaPagamentos = new TelaConsultaPagamentos();
+        jdpTelaPrincipal.add(telaConsultaPagamentos);
+        telaConsultaPagamentos.show();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmiConsultaPagamentoActionPerformed
+
+    private void jmiBaixaSalgadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiBaixaSalgadoActionPerformed
+        TelaBaixaSalgado telaBaixaSalgado = new TelaBaixaSalgado();
+        jdpTelaPrincipal.add(telaBaixaSalgado);
+        telaBaixaSalgado.show();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmiBaixaSalgadoActionPerformed
 
     /**
      * @param args the command line arguments

@@ -6,6 +6,7 @@ package br.com.dgproducoes.martinello.salgado.views;
 
 import br.com.dgproducoes.martinello.salgado.control.ClienteControl;
 import br.com.dgproducoes.martinello.salgado.model.Cliente;
+import com.google.cloud.Date;
 
 /**
  *
@@ -46,9 +47,12 @@ public class TelaCadastroCliente extends javax.swing.JInternalFrame {
         catch (Exception e){
         }
         jtfEmail = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jftfCPF = new javax.swing.JFormattedTextField();
         btSalvar = new javax.swing.JButton();
         btCancelar = new javax.swing.JButton();
         pStatus = new javax.swing.JPanel();
+        jpsStatus = new javax.swing.JLabel();
 
         setClosable(true);
         setTitle("Cadastro");
@@ -67,24 +71,38 @@ public class TelaCadastroCliente extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel1.setText("CPF:");
+
+        try {
+            jftfCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout pCadastroLayout = new javax.swing.GroupLayout(pCadastro);
         pCadastro.setLayout(pCadastroLayout);
         pCadastroLayout.setHorizontalGroup(
             pCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pCadastroLayout.createSequentialGroup()
+            .addGroup(pCadastroLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
                     .addComponent(rEmail)
                     .addComponent(rDataNascimento)
                     .addComponent(rNome))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jtfEmail)
                     .addGroup(pCadastroLayout.createSequentialGroup()
-                        .addComponent(jtfDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jtfNome))
-                .addGap(15, 15, 15))
+                        .addGroup(pCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jtfEmail)
+                            .addGroup(pCadastroLayout.createSequentialGroup()
+                                .addComponent(jtfDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 234, Short.MAX_VALUE))
+                            .addComponent(jtfNome))
+                        .addGap(15, 15, 15))
+                    .addGroup(pCadastroLayout.createSequentialGroup()
+                        .addComponent(jftfCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         pCadastroLayout.setVerticalGroup(
             pCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,7 +119,11 @@ public class TelaCadastroCliente extends javax.swing.JInternalFrame {
                 .addGroup(pCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rEmail)
                     .addComponent(jtfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jftfCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
         btSalvar.setText("Salvar");
@@ -120,15 +142,24 @@ public class TelaCadastroCliente extends javax.swing.JInternalFrame {
 
         pStatus.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jpsStatus.setBackground(new java.awt.Color(0, 0, 255));
+        jpsStatus.setForeground(new java.awt.Color(0, 51, 255));
+
         javax.swing.GroupLayout pStatusLayout = new javax.swing.GroupLayout(pStatus);
         pStatus.setLayout(pStatusLayout);
         pStatusLayout.setHorizontalGroup(
             pStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(pStatusLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jpsStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         pStatusLayout.setVerticalGroup(
             pStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(pStatusLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jpsStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -137,22 +168,22 @@ public class TelaCadastroCliente extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(pStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(161, 161, 161)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(btCancelar)
-                .addContainerGap(159, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(157, 157, 157))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btCancelar)
-                    .addComponent(btSalvar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                    .addComponent(btSalvar)
+                    .addComponent(btCancelar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -167,6 +198,7 @@ public class TelaCadastroCliente extends javax.swing.JInternalFrame {
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
         dispose();
+        limparTela();
     }//GEN-LAST:event_btCancelarActionPerformed
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
@@ -179,6 +211,9 @@ public class TelaCadastroCliente extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCancelar;
     private javax.swing.JButton btSalvar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JFormattedTextField jftfCPF;
+    private javax.swing.JLabel jpsStatus;
     private javax.swing.JTextField jtfDataNascimento;
     private javax.swing.JTextField jtfEmail;
     private javax.swing.JTextField jtfNome;
@@ -191,20 +226,31 @@ public class TelaCadastroCliente extends javax.swing.JInternalFrame {
 
     public void salvar() {
 
-        if (jtfDataNascimento.getText() != null || jtfEmail.getText() != null || jtfNome.getText() != null) {
+        if (jtfDataNascimento.getText() != null || jtfEmail.getText() != null || jtfNome.getText() != null || jftfCPF.getText() != null) {
             Cliente cliente = new Cliente();
 
             cliente.setNome(jtfNome.getText());
             cliente.setDataNascimento(jtfDataNascimento.getText());
             cliente.setEmail(jtfEmail.getText());
+            cliente.setCpf(jftfCPF.getText());
+            cliente.setSituacao("A");
 
             clienteControl.salvarCliente(cliente);
-
-            System.out.println("Cliente Cadastrado com Sucesso!!!");
+            jpsStatus.setText("Cliente Cadastrado com Sucesso!!!");
+            limparTela();
 
         } else {
-            System.out.println("Erro ao Inserir o Cliente");
+            jpsStatus.setText("Erro ao Inserir o Cliente");
+
         }
+
+    }
+
+    public void limparTela() {
+        jtfDataNascimento.setText("");
+        jftfCPF.setText("");
+        jtfEmail.setText("");
+        jtfNome.setText("");
 
     }
 
