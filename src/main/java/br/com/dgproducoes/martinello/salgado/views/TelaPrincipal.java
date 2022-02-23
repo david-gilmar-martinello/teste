@@ -9,14 +9,8 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Calendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-import javax.swing.JDesktopPane;
 import javax.swing.Timer;
 
 /**
@@ -44,7 +38,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ImageIcon icon = new ImageIcon(getClass().getResource("/imagem/caverinha.jpg"));
+        ImageIcon icon = new ImageIcon(getClass().getResource("/imagem/404.jpg"));
         Image image = icon.getImage();
         jdpTelaPrincipal = new javax.swing.JDesktopPane(){
             public void paintComponent(Graphics g){
@@ -58,6 +52,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jmbMeuPrincipal = new javax.swing.JMenuBar();
         jmCadastro = new javax.swing.JMenu();
         jmiAddFuncionario = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jmContaReceber = new javax.swing.JMenu();
         jmiConsultaPagamento = new javax.swing.JMenuItem();
         jmiBaixaSalgado = new javax.swing.JMenuItem();
@@ -112,13 +107,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jmCadastro.setText("Cadastro");
 
-        jmiAddFuncionario.setText("Adicionar Funcionario");
+        jmiAddFuncionario.setText("Adicionar Funcionário");
         jmiAddFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmiAddFuncionarioActionPerformed(evt);
             }
         });
         jmCadastro.add(jmiAddFuncionario);
+
+        jMenuItem1.setText("Consulta Funcionário");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jmCadastro.add(jMenuItem1);
 
         jmbMeuPrincipal.add(jmCadastro);
 
@@ -176,9 +179,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiAddFuncionarioActionPerformed
 
     private void jmiConsultaPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiConsultaPagamentoActionPerformed
-        TelaConsultaPagamentos telaConsultaPagamentos = new TelaConsultaPagamentos();
-        jdpTelaPrincipal.add(telaConsultaPagamentos);
-        telaConsultaPagamentos.show();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jmiConsultaPagamentoActionPerformed
@@ -191,11 +191,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jmiBaixaSalgadoActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        TelaConsultaFuncionario telaConsultaPagamentos = new TelaConsultaFuncionario();
+        jdpTelaPrincipal.add(telaConsultaPagamentos);
+        telaConsultaPagamentos.show();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JDesktopPane jdpTelaPrincipal;
     private javax.swing.JLabel jlPainelHora;

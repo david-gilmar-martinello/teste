@@ -6,17 +6,21 @@ package br.com.dgproducoes.martinello.salgado.dao;
 
 import br.com.dgproducoes.martinello.salgado.model.Cliente;
 import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.DocumentReference;
+import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
 import com.google.cloud.firestore.WriteResult;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ExecutionException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -26,7 +30,12 @@ public class ClienteCRUD {
 
     private static Firestore bd = null;
     private boolean key;
+    private Cliente cliente;
 
+//    private DatabaseReference referencia = FirebaseDatabase.getInstance().getReference();
+//    private DatabaseReference databaseReference = referencia.child("Cliente");
+//
+//    Query nomeClientes = databaseReference.orderByChild("nome");
     public ClienteCRUD() {
         ConectionFirebase firebase = new ConectionFirebase();
         bd = firebase.conctarBanco();
@@ -63,8 +72,9 @@ public class ClienteCRUD {
         return key;
     }
 
-    public boolean readFibase() {
+    public List<Cliente> readFibase() {
         key = false;
+        List<Cliente> lClientes = new LinkedList<>();
 
         try {
             //asynchronously retrieve all documents
@@ -78,8 +88,11 @@ public class ClienteCRUD {
             if (!documents.isEmpty()) {
 
                 for (QueryDocumentSnapshot document : documents) {
-                    System.out.println(document.getId() + " => " + document.getData().get("Nome"));
+                    System.out.println(document.getId() + " => " + document.getData().get("nome"));
+                    cliente = new Cliente(document.getData().get("nome").toString(), document.getData().get("email").toString(),
+                            document.getData().get("dataNascimento").toString(), document.getData().get("cpf").toString(), document.getData().get("situacao").toString());
 
+                    lClientes.add(cliente);
                 }
             }
             key = true;
@@ -87,6 +100,43 @@ public class ClienteCRUD {
             ex.printStackTrace();
         }
 
-        return key;
+        return lClientes;
     }
+
+    public List<Cliente> readFireBaseWithFiltro(Cliente cliente) {
+        List<Cliente> lCliente = new LinkedList<>();
+        ApiFuture<QuerySnapshot> future;
+
+        try {
+
+            //asynchronously retrieve multiple documents
+            if (cliente.getNome().length() < 1) {
+                 future = bd.collection("Cliente").whereEqualTo("cpf", cliente.getCpf()).get();
+
+            } else {
+
+                future = bd.collection("Cliente").whereEqualTo("nome", cliente.getNome()).get();
+            }
+
+            // future.get() blocks on response
+            List<QueryDocumentSnapshot> documents;
+
+            documents = future.get().getDocuments();
+
+            for (DocumentSnapshot document : documents) {
+                System.out.println(document.getId() + " => " + document.getData().get("Nome"));
+                cliente = new Cliente(document.getData().get("nome").toString(), document.getData().get("email").toString(),
+                        document.getData().get("dataNascimento").toString(), document.getData().get("cpf").toString(), document.getData().get("situacao").toString());
+
+                lCliente.add(cliente);
+
+            }
+
+        } catch (InterruptedException | ExecutionException ex) {
+            ex.printStackTrace();
+        }
+
+        return lCliente;
+    }
+
 }

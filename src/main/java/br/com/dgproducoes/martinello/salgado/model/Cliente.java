@@ -6,6 +6,7 @@ package br.com.dgproducoes.martinello.salgado.model;
 
 import com.google.cloud.Date;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import com.towel.el.annotation.Resolvable;
 
 import java.io.Serializable;
 import javafx.beans.property.SimpleStringProperty;
@@ -17,61 +18,70 @@ import javafx.beans.property.StringProperty;
  */
 public class Cliente extends RecursiveTreeObject<Cliente> implements Serializable {
 
-    StringProperty nome;
-    StringProperty email;
-    StringProperty dataNascimento;
-    StringProperty cpf;
-    StringProperty situacao;
+    @Resolvable(colName = "Nome")
+    String nome;
+
+    @Resolvable(colName = "Email")
+    String email;
+
+    @Resolvable(colName = "Data Nascimento")
+    String dataNascimento;
+
+    @Resolvable(colName = "CPF")
+    String cpf;
+
+    @Resolvable(colName = "Situação")
+    String situacao;
 
     public Cliente() {
     }
 
     public Cliente(String nome, String email, String dataNascimento, String cpf, String situacao) {
-        this.nome = new SimpleStringProperty(nome);
-        this.email = new SimpleStringProperty(email);
-        this.dataNascimento = new SimpleStringProperty(dataNascimento);
-        this.cpf = new SimpleStringProperty(cpf);
-        this.situacao = new SimpleStringProperty(situacao);
+        this.nome = nome;
+        this.email = email;
+        this.dataNascimento = dataNascimento;
+        this.cpf =cpf;
+        this.situacao = situacao;
     }
 
     public String getNome() {
-        return nome.get();
+        return nome;
     }
 
     public void setNome(String nome) {
-        this.nome = new SimpleStringProperty(nome);
+        this.nome = nome;
     }
 
     public String getEmail() {
-        return email.get();
+        return email;
     }
 
     public void setEmail(String email) {
-        this.email = new SimpleStringProperty(email);
+        this.email = email;
     }
 
     public String getDataNascimento() {
-        return dataNascimento.get();
+        return dataNascimento;
     }
 
     public void setDataNascimento(String dataNascimento) {
-        this.dataNascimento = new SimpleStringProperty(dataNascimento);
+        this.dataNascimento =dataNascimento;
     }
 
     public String getCpf() {
-        return cpf.get();
+        return cpf;
     }
 
     public void setCpf(String cpf) {
-        this.cpf = new SimpleStringProperty(cpf);
+        this.cpf = cpf;
     }
 
     public String getSituacao() {
-        return situacao.get();
+        return situacao;
     }
 
     public void setSituacao(String situacao) {
-        this.situacao = new SimpleStringProperty(situacao);
+        this.situacao = situacao;
     }
 
 }
