@@ -2,6 +2,7 @@
 <!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TesteParaOGit" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8452950a-5e60-4fe4-a11a-b5cfe7d80d36">
 	<property name="ireport.callouts" value="callouts.1.bounds=30,30,199,39\ncallouts.1.bg=255,255,0\ncallouts.1.fg=0,0,0\ncallouts.1.text=david.pereira 24/06/2022 07\:43\n"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<subDataset name="Dataset1" uuid="a2c12860-ad4b-44d4-a80d-94f1c9646ded">
 		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 		<queryString>
