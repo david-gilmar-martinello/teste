@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TesteParaOGit" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8452950a-5e60-4fe4-a11a-b5cfe7d80d36">
+	<property name="ireport.callouts" value="callouts.1.bounds=30,30,199,39\ncallouts.1.bg=255,255,0\ncallouts.1.fg=0,0,0\ncallouts.1.text=david.pereira 24/06/2022 07\:43\n"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="238" splitType="Stretch">
+			<break>
+				<reportElement x="0" y="90" width="550" height="1" uuid="f8922bfa-36ba-44ea-b767-0b9c0cf8ea35"/>
+			</break>
+			<ellipse>
+				<reportElement x="28" y="126" width="132" height="84" uuid="d54fd594-2c15-4dd6-83a6-efd9aaca8e16"/>
+			</ellipse>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
